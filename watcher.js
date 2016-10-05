@@ -1,15 +1,19 @@
 var watch = require('glob-watcher');
+var nodeCLI = require('shelljs-nodecli');
 
-var watcher = watch(['./*.js']);
+var watcher = watch(['./*.*','./dir1/*']);
 
 watcher.on('change', function(path,stat) {
+	nodeCLI('/Users/JayantJaiswal/Desktop/Work/mine_testing/node_modules/ttab/bin/ttab');
+	//nodeCLI.exec('git','add',path);
+	//nodeCLI.exec('git','commit','-m','"' + path  + 'updated"');
+	//nodeCLI.exec('git','push','origin','master');
 	console.log("File change at path : " + path);
 });
 
 watcher.on('add', function(path,stat) {
 	console.log("Other files added... ");
 });
-
 
 
 /*var chokidar = require('chokidar');
